@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="app.js" type="module"></script>
+    <title>Animated Toggle Switch</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="custom-check-wrapper">
+        <input type="checkbox" id="setting1" role="switch" />
+        <div class="custom-check">
+          <div class="custom-check-thumb"></div>
+        </div>
+        <label for="setting1">
+          <span id="setting1-unchecked">Activate Setting</span>
+          <span id="setting1-checked" style="display: none"
+            >Setting Activated</span
+          ></label
+        >
+      </div>
+      <div class="custom-check-wrapper">
+        <input type="checkbox" id="setting2" role="switch" />
+        <div class="custom-check">
+          <div class="custom-check-thumb"></div>
+        </div>
+        <label for="setting2">
+          <span id="setting2-unchecked">Activate Other Setting</span>
+          <span id="setting2-checked" style="display: none"
+            >Setting Activated</span
+          >
+        </label>
+      </div>
+    </div>
+  </body>
+</html>

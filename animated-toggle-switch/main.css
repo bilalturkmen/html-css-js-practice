@@ -1,0 +1,124 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --hue: 260;
+  --accent: var(--hue) 80% 40%;
+  --muted: var(--hue) 20% 90%;
+  --bkg: var(--hue) 30% 98%;
+  --text: var(--hue) 80% 9%;
+
+  --fs-400: 2.5rem;
+  --toggleHeight: 1.5em;
+}
+
+body {
+  background-color: hsl(var(--bkg));
+  color: hsl(var(--text));
+  font-size: var(--fs-400);
+  font-family: "Inter", sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  gap: var(--fs-400);
+}
+
+.custom-check-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  position: relative;
+}
+
+[role="switch"] {
+  appearance: none;
+  --webkit-appearance: none;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+[role="switch"]:focus {
+  outline: 2px solid transparent;
+}
+[role="switch"]:focus-visible + .custom-check {
+  box-shadow: 0 0 0 0.15em hsl(var(--bkg)), 0 0 0 0.4em hsl(var(--accent));
+}
+
+.custom-check {
+  width: calc(var(--toggleHeight) * 2);
+  height: var(--toggleHeight);
+  background-color: hsl(var(--muted));
+  border-radius: 100vmax;
+  position: relative;
+  pointer-events: none;
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.6, 1),
+    box-shadow 80ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.custom-check-thumb {
+  position: absolute;
+  background-color: hsl(var(--bkg));
+  border-radius: 100vmax;
+  height: calc(var(--toggleHeight) * 0.834);
+  width: calc(var(--toggleHeight) * 0.834);
+  top: calc(var(--toggleHeight) * 0.084);
+  left: calc(var(--toggleHeight) * 0.084);
+}
+
+[role="switch"]:checked + .custom-check {
+  background-color: hsl(var(--accent));
+}
+
+/* [role="switch"]:checked + .custom-check > .custom-check-thumb {
+  animation: toggleOn 250ms cubic-bezier(0.4, 0, 0.6, 1) forwards;
+} */
+
+/* [role="switch"]:not(:checked) + .custom-check > .custom-check-thumb {
+  animation: toggleOff 250ms cubic-bezier(0.4, 0, 0.6, 1) forwards;
+} */
+
+@keyframes toggleOn {
+  0% {
+    width: calc(var(--toggleHeight) * 0.834);
+  }
+  40% {
+    width: calc(var(--toggleHeight) * 1.4);
+  }
+  100% {
+    width: calc(var(--toggleHeight) * 0.834);
+    transform: translateX(var(--toggleHeight));
+  }
+}
+@keyframes toggleOff {
+  0% {
+    width: calc(var(--toggleHeight) * 0.834);
+    transform: translateX(var(--toggleHeight));
+  }
+  60% {
+    width: calc(var(--toggleHeight) * 1.4);
+  }
+  100% {
+    width: calc(var(--toggleHeight) * 0.834);
+    transform: translateX(0);
+  }
+}

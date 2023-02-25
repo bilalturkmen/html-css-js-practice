@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg: hsl(0, 0%, 12%);
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  background: var(--body-bg);
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-title {
+  font-size: 3rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+}
+
+section {
+  padding-block: 5rem;
+}
+
+/* DIAGONAL SECTION */
+
+.diagonal {
+  /* define css variables for this section */
+  --skew-angle: -3deg;
+  --background: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+  position: relative;
+  isolation: isolate;
+}
+
+.diagonal::after {
+  content: "";
+  background: var(--background);
+  position: absolute;
+  z-index: -1;
+  inset: 0; /* shothand to make top bottom left right 0 */
+  transform: skewY(var(--skew-angle));
+}
+
+/* SPIKES SECTION */
+
+.spikes {
+  /* define css variables for this section */
+  --spike-width: 50px;
+  --spike-height: 10px;
+  --spike-color: var(--body-bg);
+
+  position: relative;
+  color: black;
+  background: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
+
+.spikes::before,
+.spikes::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: var(--spike-height);
+  background: var(--spike-color);
+
+  -webkit-mask-image: url("./assets/triangle.svg");
+  -webkit-mask-size: var(--spike-width) var(--spike-height);
+
+  mask-image: url("./assets/triangle.svg");
+  mask-size: var(--spike-width) var(--spike-height);
+}
+
+.spikes::before {
+  top: 0;
+}
+.spikes::after {
+  bottom: 0;
+  transform: rotate(0.5turn);
+}
+
+.wavy {
+  /* define css variables for this section */
+  --mask: radial-gradient(50.39px at 50% 68.75px, #000 99%, #0000 101%)
+      calc(50% - 50px) 0/100px 51% repeat-x,
+    radial-gradient(50.39px at 50% -43.75px, #0000 99%, #000 101%) 50% 25px/100px
+      calc(51% - 25px) repeat-x,
+    radial-gradient(50.39px at 50% calc(100% - 68.75px), #000 99%, #0000 101%)
+      calc(50% - 50px) 100%/100px 51% repeat-x,
+    radial-gradient(50.39px at 50% calc(100% + 43.75px), #0000 99%, #000 101%)
+      50% calc(100% - 25px) / 100px calc(51% - 25px) repeat-x;
+
+  background: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
