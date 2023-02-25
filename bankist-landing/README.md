@@ -1,3 +1,5 @@
-# Bankist Landing Page
+## Bankist Landing Page
 
-A landing page developed with javascript and css.
+developed with javascript and css.
+
+### [Live](https://bilalturkmen.github.io/html-css-js-practice/bankist-landing/)

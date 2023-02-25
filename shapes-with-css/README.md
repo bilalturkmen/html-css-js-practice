@@ -1,7 +1,7 @@
 # Separating Web Sections with Css Shapes
 
-I used some angles, shapes and waves between sections of a web page via css
+angles, shapes and waves between sections of a web page via css
 
-Live View
+### [Live](https://bilalturkmen.github.io/html-css-js-practice/shapes-with-css/)
 
 ![](./assets/screenshot.jpg)

@@ -1,5 +1,5 @@
-# Animated Toggle Switch
+## Animated Toggle Switch
 
-Modern animated toggle switch.
+### [Live](https://bilalturkmen.github.io/html-css-js-practice/animated-toggle-switch/)
 
 ![](./screenshot.png)
